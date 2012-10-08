@@ -1,4 +1,4 @@
-class tilecache::base {
+class tilecache::debian {
 
   package {
     [
