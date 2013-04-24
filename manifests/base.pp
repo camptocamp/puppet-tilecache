@@ -20,13 +20,6 @@ class tilecache::base {
         ensure  => present,
         require => Package["libapache2-mod-python"],
       }
-      case $architecture {
-        'amd64': {
-          package {"python-image-merge":
-            ensure => present,
-          }
-        }
-      }
     }
   }
 
