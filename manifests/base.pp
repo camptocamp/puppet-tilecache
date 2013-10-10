@@ -16,14 +16,14 @@ class tilecache::base {
 
   case $lsbdistcodename {
     'lenny' : {
-      apache::module {"python":
+      apache_c2c::module {"python":
         ensure  => present,
         require => Package["libapache2-mod-python"],
       }
     }
   }
 
-  apache::module {"expires":
+  apache_c2c::module {"expires":
     ensure => present,
   }
 
