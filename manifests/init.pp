@@ -51,8 +51,13 @@ class tilecache {
     ensure  => present,
   }
 
-  apache_c2c::module {'expires':
-    ensure => present,
+  if defined(Class['apache_c2c']) {
+    apache_c2c::module {'expires':
+      ensure => present,
+    }
+  }
+  if defined(Class['apache']) {
+    include apache::mod::expires
   }
 
 }
