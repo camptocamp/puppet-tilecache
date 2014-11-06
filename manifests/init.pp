@@ -30,26 +30,22 @@ class tilecache {
       # the Fedora repository
       case $::operatingsystemmajrelease {
         '6': {
-          yumrepo {'fedora-core13-for-tilecache':
-            descr       => 'Fedora Core 13',
-            baseurl     => 'http://dl.fedoraproject.org/pub/archive/fedora/linux/updates/13/$basearch',
-            enabled     => 1,
-            gpgcheck    => 0,
-            includepkgs => 'python-tilecache',
-            before      => Package['python-tilecache'],
-          }
+          $repo_descr = 'Fedora Core 13'
+          $repo_baseurl = 'http://dl.fedoraproject.org/pub/archive/fedora/linux/updates/13/$basearch'
         }
         '7': {
-          yumrepo {'fedora-core14-for-tilecache':
-            descr       => 'Fedora Core 14',
-            baseurl     => 'http://dl.fedoraproject.org/pub/archive/fedora/linux/updates/14/$basearch',
-            enabled     => 1,
-            gpgcheck    => 0,
-            includepkgs => 'python-tilecache',
-            before      => Package['python-tilecache'],
-          }
+          $repo_descr = 'Fedora Core 14'
+          $repo_baseurl = 'http://dl.fedoraproject.org/pub/archive/fedora/linux/updates/14/$basearch'
         }
         default: { fail 'This version of RHEL is not supported' }
+      }
+      yumrepo {'repo-for-tilecache':
+        descr       => $repo_descr,
+        baseurl     => $repo_baseurl,
+        enabled     => 1,
+        gpgcheck    => 0,
+        includepkgs => 'python-tilecache',
+        before      => Package['python-tilecache'],
       }
     }
     default: {
