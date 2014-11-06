@@ -29,7 +29,7 @@ class tilecache {
       # python-tilecache is not included in RHEL, so we use a working version from
       # the Fedora repository
       case $::operatingsystemmajrelease {
-        '6': {
+        '6', '7': {
           yumrepo {'fedora-core13-for-tilecache':
             descr       => 'Fedora Core 13',
             baseurl     => 'http://dl.fedoraproject.org/pub/archive/fedora/linux/updates/13/$basearch',
