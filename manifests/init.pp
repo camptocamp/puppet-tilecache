@@ -1,7 +1,7 @@
 class tilecache {
 
   case $::osfamily {
-    Debian: {
+    'Debian': {
       $pkg_list = [
         'tilecache',
         'python-imaging',
@@ -19,7 +19,7 @@ class tilecache {
         }
       }
     }
-    RedHat: {
+    'RedHat': {
       $pkg_list = [
         'python-tilecache',
         'python-imaging',

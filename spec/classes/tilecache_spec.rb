@@ -8,7 +8,7 @@ describe 'tilecache' do
     let (:facts) { {
       :operatingsystem => 'Debian',
       :osfamily        => 'Debian',
-      :lsbdistcodename => 'lenny',
+      :lsbdistcodename => 'wheezy',
       :selinux         => false,
     } }
 
