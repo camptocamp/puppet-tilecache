@@ -63,7 +63,7 @@ class tilecache {
     }
   }
   if defined(Class['apache']) {
-    include apache::mod::expires
+    include ::apache::mod::expires
   }
 
 }
